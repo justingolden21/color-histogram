@@ -1,0 +1,4 @@
+download color histgoram img
+work with url to image
+add favicon
+update readme

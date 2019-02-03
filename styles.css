@@ -1,0 +1,28 @@
+* {
+	text-align: center !important;
+}
+body {
+	margin: 40px;
+}
+h1, p {
+	color: #333;
+}
+::-moz-selection {
+	background: #ccc;
+}
+::selection {
+	background: #ccc;
+}
+canvas {
+	border: 2px solid #ccc;
+}
+#uploadButton {
+
+	display: block;
+	border: 3px solid #339;
+	background-color: #66c;
+	color: #fff;
+}
+#uploadButton:hover {
+	background-color: #339;
+}

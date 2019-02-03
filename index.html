@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color Histogram</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="title=" content="Color Histogram">
+	<meta name="robots" content="index, follow">
+	<meta name="description" content="Generate a color histogram of any image">
+	<meta name="keywords" content="cololr histogram, histogram, photography, photograph, photo, image, picture">
+	<meta name="theme-color" content="#ccc">
+	<meta name="msapplication-navbutton-color" content="#ccc">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#ccc">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles.css">
+	<script src="scripts.js"></script>
+</head>
+<body>
+	<h1><i class="fas fa-chart-area"></i> Color Histogram</h1>
+	<hr>
+
+	<label id="uploadButton" class="btn btn-lg">
+		<i class="fas fa-upload"></i> Upload Image <i class="fas fa-file-image"></i>
+		<input hidden id="input" type="file" accept="image/*" class="form-control input-sm">
+	</label>
+
+	<p>Uploaded Image:</p>
+	<canvas id="canvas"></canvas>
+
+	<p id="infoP"></p>
+</body>
+</html>
