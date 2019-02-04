@@ -7,6 +7,11 @@ window.onload = function() {
 	ctx = canvas.getContext('2d');
 
 	$('#input').change(handleFile);
+
+	$('#lineCheckbox').change(function() {
+		if(img)
+			drawChart(getRgbData(), $('#lineCheckbox').is(':checked') );
+	});
 }
 
 function handleFile(evt){
