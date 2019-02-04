@@ -35,6 +35,7 @@ function updateChart() {
 	drawChart(getRgbData(), $('#lineCheckbox').is(':checked'), $('#curveCheckbox').is(':checked') );
 	$('#logo').prop('src', 'img/logo.svg');
 	$('#iconLink').prop('href', 'img/logo.png');
+	$('#histogramDiv').css('opacity','1');
 }
 
 function getRgbData() {
@@ -77,9 +78,9 @@ function displayAvgs(rAvg, gAvg, bAvg) {
 
 	$('#avgP').html(
 		'Avgerage Red: ' + rAvg +
-		'<br>Avgerage Green: ' + gAvg +
-		'<br>Avgerage blue: ' + bAvg +
-		'<br>Avgerage brightness: ' + avg +
-		'<br>(out of 255)'
+		' &nbsp;&nbsp; | &nbsp;&nbsp; Avgerage Green: ' + gAvg +
+		' &nbsp;&nbsp; | &nbsp;&nbsp; Avgerage blue: ' + bAvg +
+		' &nbsp;&nbsp; | &nbsp;&nbsp; Avgerage brightness: ' + avg +
+		' &nbsp;&nbsp; | &nbsp;&nbsp; (out of 255)'
 	);
 }

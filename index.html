@@ -3,6 +3,7 @@
 <head>
 	<title>Color Histogram</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<meta charset="utf-8">
 	<meta name="title=" content="Color Histogram">
 	<meta name="robots" content="index, follow">
@@ -35,16 +36,21 @@
 		<input hidden id="input" type="file" accept="image/*" class="form-control input-sm">
 	</label>
 
-	<p>Uploaded Image:</p>
-	<canvas id="canvas"></canvas>
-	<br><p>Color Histogram:</p>
-	<div id="chart"></div>
-	<br><p id="avgP"></p>
+	<div id="histogramDiv">
 
+	<p><b>Uploaded Image:</b></p>
+	<canvas id="canvas"></canvas>
+	<br><p><b>Color Histogram:</b></p>
+	<div id="chart"></div>
+	<br><p id="avgP"></p> <!-- todo: change into rows/cols -->
+
+	<p><b>Chart Options:</b></p>
 	<input id="lineCheckbox" type="checkbox">
 	<label for="lineCheckbox">Line Chart</label>
 	<input disabled="true" id="curveCheckbox" type="checkbox">
 	<label for="curveCheckbox">Curve Lines</label>
+
+	</div>
 
 </body>
 </html>

@@ -25,3 +25,6 @@ canvas {
 #uploadButton:hover {
 	background-color: #339;
 }
+#histogramDiv {
+	opacity: 0;
+}
