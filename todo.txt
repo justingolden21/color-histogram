@@ -1,4 +1,3 @@
 download color histgoram img
-work with url to image
-add favicon
+input for img url
 update readme

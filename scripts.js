@@ -9,8 +9,10 @@ window.onload = function() {
 	$('#input').change(handleFile);
 
 	$('#lineCheckbox').change(function() {
-		if(img)
+		if(img) {
 			drawChart(getRgbData(), $('#lineCheckbox').is(':checked') );
+			$('#logo').prop('src', 'img/logo.svg');
+		}
 	});
 }
 
@@ -22,6 +24,7 @@ function handleFile(evt){
 		ctx.drawImage(img, 0, 0);
 
 		drawChart(getRgbData(), $('#lineCheckbox').is(':checked') );
+		$('#logo').prop('src', 'img/logo.svg');
 	}
 
 	console.log(evt.target.files[0]);
