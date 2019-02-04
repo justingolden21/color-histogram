@@ -33,7 +33,8 @@ function handleFile(evt){
 function updateChart() {
 	if(!img) return;
 	drawChart(getRgbData(), $('#lineCheckbox').is(':checked'), $('#curveCheckbox').is(':checked') );
-	$('#logo').prop('src', 'img/logo.svg');	
+	$('#logo').prop('src', 'img/logo.svg');
+	$('#iconLink').prop('href', 'img/logo.png');
 }
 
 function getRgbData() {
