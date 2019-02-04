@@ -68,13 +68,17 @@ function getRgbData() {
 }
 
 function displayAvgs(rAvg, gAvg, bAvg) {
+	let avg = (rAvg+gAvg+bAvg)/3;
 	rAvg = Math.round(rAvg*100)/100;
 	gAvg = Math.round(gAvg*100)/100;
 	bAvg = Math.round(bAvg*100)/100;
+	avg = Math.round(avg*100)/100;
 
 	$('#avgP').html(
 		'Avgerage Red: ' + rAvg +
 		'<br>Avgerage Green: ' + gAvg +
-		'<br>Avgerage blue: ' + bAvg
+		'<br>Avgerage blue: ' + bAvg +
+		'<br>Avgerage brightness: ' + avg +
+		'<br>(out of 255)'
 	);
 }
