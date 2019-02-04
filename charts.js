@@ -1,7 +1,7 @@
 google.charts.load('current', {'packages':['corechart','bar']});
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart(rgbData, lines) {
+function drawChart(rgbData, lines, curved=false) {
 	let chartdata = [ ['Occurences', 'Red', 'Green', 'Blue', 'All'] ];
 	let intervalSize = 32; // power of 2, number of sections on x axis
 	let numSections = 256/intervalSize;
@@ -24,6 +24,8 @@ function drawChart(rgbData, lines) {
 		bar: { groupWidth: '90%' },
 		colors: ['#933', '#393', '#339', '#333']
 	};
+	if(curved)
+		options.curveType = 'function';
 
 	let chart;
 	if(lines)

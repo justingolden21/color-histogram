@@ -2,19 +2,19 @@
 
 let canvas, ctx, img;
 
-window.onload = function() {
+$(function() {
 	canvas = document.getElementById('canvas');
 	ctx = canvas.getContext('2d');
 
 	$('#input').change(handleFile);
 
 	$('#lineCheckbox').change(function() {
-		if(img) {
-			drawChart(getRgbData(), $('#lineCheckbox').is(':checked') );
-			$('#logo').prop('src', 'img/logo.svg');
-		}
+		updateChart();
+		$('#curveCheckbox').prop('disabled', ! $(this).is(':checked') );
 	});
-}
+
+	$('#curveCheckbox').change(updateChart);
+});
 
 function handleFile(evt){
 	img = new Image;
@@ -22,13 +22,18 @@ function handleFile(evt){
 		canvas.width = img.width;
 		canvas.height = img.height;
 		ctx.drawImage(img, 0, 0);
-
-		drawChart(getRgbData(), $('#lineCheckbox').is(':checked') );
-		$('#logo').prop('src', 'img/logo.svg');
+		
+		updateChart();
 	}
 
 	console.log(evt.target.files[0]);
 	img.src =  URL.createObjectURL(evt.target.files[0]);
+}
+
+function updateChart() {
+	if(!img) return;
+	drawChart(getRgbData(), $('#lineCheckbox').is(':checked'), $('#curveCheckbox').is(':checked') );
+	$('#logo').prop('src', 'img/logo.svg');	
 }
 
 function getRgbData() {
