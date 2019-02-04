@@ -16,45 +16,39 @@ function handleFile(evt){
 		canvas.height = img.height;
 		ctx.drawImage(img, 0, 0);
 
-		$('#infoP').html(getImgData() );
+		drawChart(getRgbData(), $('#lineCheckbox').is(':checked') );
 	}
 
 	console.log(evt.target.files[0]);
 	img.src =  URL.createObjectURL(evt.target.files[0]);
 }
 
-function getImgData() {
-		if(!img) {
-			return;
-		}
+function getRgbData() {
+	if(!img) return;
 
-		let imgData = ctx.getImageData(0, 0, img.width, img.height);
-		let i, j;
+	let imgData = ctx.getImageData(0, 0, img.width, img.height);
+	let i, j;
 
-		// array of how many pixels are that value
-		let r = new Array(256).fill(0);
-		let g = new Array(256).fill(0);
-		let b = new Array(256).fill(0);
+	// array of how many pixels are that value
+	let r = new Array(256).fill(0);
+	let g = new Array(256).fill(0);
+	let b = new Array(256).fill(0);
 
-		let rAvg=gAvg=bAvg = 0;
+	// let rAvg=gAvg=bAvg = 0;
 
-		for(i=0, len=imgData.data.length; i<len; i+=4) {
-			r[imgData.data[i] ]++;
-			g[imgData.data[i+1] ]++;
-			b[imgData.data[i+2] ]++;
+	for(i=0, len=imgData.data.length; i<len; i+=4) {
+		r[imgData.data[i] ]++;
+		g[imgData.data[i+1] ]++;
+		b[imgData.data[i+2] ]++;
 
-			rAvg += imgData.data[i];
-			gAvg += imgData.data[i+1];
-			bAvg += imgData.data[i+2];
-		}
+		// rAvg += imgData.data[i];
+		// gAvg += imgData.data[i+1];
+		// bAvg += imgData.data[i+2];
+	}
 
-		rAvg /= imgData.data.length/4;
-		gAvg /= imgData.data.length/4;
-		bAvg /= imgData.data.length/4;
+	// rAvg /= imgData.data.length/4;
+	// gAvg /= imgData.data.length/4;
+	// bAvg /= imgData.data.length/4;
 
-		console.log(rAvg + ', ' + gAvg + ',' + bAvg);
-		console.log(r+g+b);
-		return r+g+b;
-
+	return {r:r, g:g, b:b};
 }
-

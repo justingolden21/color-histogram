@@ -14,11 +14,10 @@ h1, p {
 	background: #ccc;
 }
 canvas {
-	border: 2px solid #ccc;
+	border: 3px solid #ccc;
+	width: 60%;
 }
 #uploadButton {
-
-	display: block;
 	border: 3px solid #339;
 	background-color: #66c;
 	color: #fff;
