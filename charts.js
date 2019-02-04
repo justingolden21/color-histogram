@@ -32,5 +32,11 @@ function drawChart(rgbData, lines, curved=false) {
 		chart = new google.visualization.LineChart(document.getElementById('chart') );		
 	else 
 		chart = new google.charts.Bar(document.getElementById('chart') );
+
+	// below works only with line charts
+	// google.visualization.events.addListener(chart, 'ready', function () {
+	// 	$(document.body).append('<img src="' + chart.getImageURI() + '">');
+	// });
+
 	chart.draw(data, options);
 }

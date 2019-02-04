@@ -26,7 +26,7 @@ function handleFile(evt){
 		updateChart();
 	}
 
-	console.log(evt.target.files[0]);
+	// console.log(evt.target.files[0]);
 	img.src =  URL.createObjectURL(evt.target.files[0]);
 }
 
@@ -40,28 +40,41 @@ function getRgbData() {
 	if(!img) return;
 
 	let imgData = ctx.getImageData(0, 0, img.width, img.height);
-	let i, j;
 
 	// array of how many pixels are that value
 	let r = new Array(256).fill(0);
 	let g = new Array(256).fill(0);
 	let b = new Array(256).fill(0);
 
-	// let rAvg=gAvg=bAvg = 0;
+	let rAvg = gAvg = bAvg = 0;
 
-	for(i=0, len=imgData.data.length; i<len; i+=4) {
+	for(let i=0, len=imgData.data.length; i<len; i+=4) {
 		r[imgData.data[i] ]++;
 		g[imgData.data[i+1] ]++;
 		b[imgData.data[i+2] ]++;
 
-		// rAvg += imgData.data[i];
-		// gAvg += imgData.data[i+1];
-		// bAvg += imgData.data[i+2];
+		rAvg += imgData.data[i];
+		gAvg += imgData.data[i+1];
+		bAvg += imgData.data[i+2];
 	}
 
-	// rAvg /= imgData.data.length/4;
-	// gAvg /= imgData.data.length/4;
-	// bAvg /= imgData.data.length/4;
+	rAvg /= imgData.data.length/4;
+	gAvg /= imgData.data.length/4;
+	bAvg /= imgData.data.length/4;
+
+	displayAvgs(rAvg, gAvg, bAvg);
 
 	return {r:r, g:g, b:b};
+}
+
+function displayAvgs(rAvg, gAvg, bAvg) {
+	rAvg = Math.round(rAvg*100)/100;
+	gAvg = Math.round(gAvg*100)/100;
+	bAvg = Math.round(bAvg*100)/100;
+
+	$('#avgP').html(
+		'Avgerage Red: ' + rAvg +
+		'<br>Avgerage Green: ' + gAvg +
+		'<br>Avgerage blue: ' + bAvg
+	);
 }
